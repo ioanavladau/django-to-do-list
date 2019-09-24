@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+</head>
+<body>
+    <h1>Details</h1>
+    <hr>
+    {{ todo.user }}
+    <form action="{% url 'todoapp:details' todo.pk %}" method="POST">
+        {% csrf_token %}
+        <label for="title">Title</label>
+        <br/>
+        <input id="title" type="text" name="title" value="{{ todo.title }}">
+        <br/>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="{{ todo.description }}">
+        <br/>
+        <label for="status">Status</label>
+        <input type="checkbox" name="status" id="status" {% if todo.status %}checked{% endif %}>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

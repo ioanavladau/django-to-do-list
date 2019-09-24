@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    {{user}}
+    <form action="." method="POST">
+        {% csrf_token %}
+        <label for="user">Username</label>
+        <br>
+        <input id="user" type="text" name="user" placeholder="Username">
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input id="password" type="password" name="password">
+        <br>
+        <input type="submit" value="Submit"> 
+    </form>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+</body>
+</html>

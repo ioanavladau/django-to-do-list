@@ -9,10 +9,12 @@
 <body>
     <h1>Todo App!</h1>
     <hr>
+    {{ todo.user }}
+    <a href="{% url 'loginapp:logout' %}">Log out</a>
     <ul>
         {% for todo in todos %}
             <li>
-                {{ todo.title }}
+                <a href="{% url 'todoapp:details' todo.pk %}">{{ todo.title }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -22,6 +24,8 @@
         <label for="title">Title</label>
         <input id="title" type="text" name="title">
         <br>
+        <label for="description">Description</label>
+        <input id="description" type="textarea" name="description">
         <input type="submit" value="Submit"> 
     </form>
 </body>
